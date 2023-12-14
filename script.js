@@ -52,5 +52,20 @@ function showQuestion() {
     document.getElementById('answer_4').innerHTML = question['answer_4'];
 }
 
+function answerGiven(selection) {
+    let question = questions[currentQuestion];
+    console.log('Selected answer is ', selection)
+    let selectedQuestionNumber = selection.slice(-1);
+    console.log('selectedQuestionNumber is ', selectedQuestionNumber);
+    console.log('Current question is ', question['right_answer']);
+
+    if(selectedQuestionNumber == question['right_answer']){
+        console.log(selection, 'ist die richtige Antwort!');
+    }
+    else {
+        console.log(selection, 'ist leider die falsche Antwort!');
+    }
+
+}
 
 
