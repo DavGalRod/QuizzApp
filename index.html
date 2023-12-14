@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
 
-<body>
+<body onload="init()">
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
             <a href="index.html" class="navbarABar"><span class="navbar-brand mb-0 h1">QuizzApp</span></a>
@@ -22,38 +22,36 @@
         <div class="card quizCard">
             <img src="img/card_img.jpg" class="card-img-top; cardTopLayer">
             <div class="card-body">
-                <h5 class="card-title">Frage 1:</h5>
-                <p class="card-text">Welches Pokemon ist das schwerste von allen?</p>
-
-
-                <div class="card mb-2">
-                    <div class="card-body">
-                        Relaxo
+                <h5 class="card-title" id="questionText"></h5>
+                
+                <div class="card quizAnswer mb-2" oncanplay="answerGiven()">
+                    <div class="card-body" id="answer_1">
+                       
                     </div>
 
                 </div>
-                <div class="card mb-2">
-                    <div class="card-body">
-                        Onyx
+                <div class="card quizAnswer mb-2" oncanplay="answerGiven()">
+                    <div class="card-body" id="answer_2">
+                       
                     </div>
 
                 </div>
-                <div class="card mb-2">
-                    <div class="card-body">
-                        Geowaz
+                <div class="card quizAnswer mb-2" oncanplay="answerGiven()">
+                    <div class="card-body" id="answer_3">
+                        
                     </div>
 
                 </div>
-                <div class="card mb-2">
-                    <div class="card-body">
-                        Nidoking
+                <div class="card quizAnswer mb-2" oncanplay="answerGiven()">
+                    <div class="card-body" id="answer_4">
+                        
                     </div>
 
                 </div>
 
                 <div class="questionFooter">
                     <span>
-                        <b>1</b> von <b>5</b> Fragen</span>
+                        <b>1</b> von <b id="allQuestions"></b> Fragen</span>
                     <button class="btn btn-primary">Nächste Frage</button>
                 </div>
             </div>
