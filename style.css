@@ -36,5 +36,17 @@ body {
 .quizAnswer:hover {
 
 cursor: pointer;
-background-color: rgba(108, 187, 0, 0.2);
+background-color: rgba(0, 0, 0, 0.2);
+}
+
+.bg-success, .bg-danger {
+    color: white !important;
+}
+
+@media(max-width: 550px){
+.container-fluid {
+    display: flex !important;
+    justify-content: center !important;
+}
+
 }

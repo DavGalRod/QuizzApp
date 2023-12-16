@@ -29,7 +29,7 @@ let questions = [
         "answer_2": "Eisen (Fe)",
         "answer_3": "Xenon (Xe)",
         "answer_4": "Wasserstoff (H)",
-        "right_answer": 3
+        "right_answer": 4
     }
 
 
@@ -40,6 +40,7 @@ let currentQuestion = 0;
 
 function init() {
     document.getElementById('allQuestions').innerHTML = questions.length;
+   
     showQuestion();
 }
 
@@ -59,13 +60,40 @@ function answerGiven(selection) {
     console.log('selectedQuestionNumber is ', selectedQuestionNumber);
     console.log('Current question is ', question['right_answer']);
 
+let idOfRightAnswer = `answer_${question['right_answer']}`;
+
+
     if(selectedQuestionNumber == question['right_answer']){
         console.log(selection, 'ist die richtige Antwort!');
+        document.getElementById(selection).parentNode.classList.add('bg-success')
+    } else {
+         document.getElementById(selection).parentNode.classList.add('bg-danger')
+         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success')
     }
-    else {
-        console.log(selection, 'ist leider die falsche Antwort!');
-    }
+    document.getElementById('nextButton').disabled = false;
 
 }
 
+function nextQuestion() {
+    currentQuestion++; //Array wird hier von 0 auf 1 gestellt;
+    
+
+    document.getElementById('nextButton').disabled = true;
+    resetQuestion();
+    showQuestion();
+  
+
+}
+
+function resetQuestion(){
+    document.getElementById('answer_1').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_2').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_3').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_4').parentNode.classList.remove('bg-danger');
+
+    document.getElementById('answer_1').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_2').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_3').parentNode.classList.remove('bg-success');
+    document.getElementById('answer_4').parentNode.classList.remove('bg-success');
+}
 
