@@ -40,17 +40,27 @@ let currentQuestion = 0;
 
 function init() {
     document.getElementById('allQuestions').innerHTML = questions.length;
-   
+
+
     showQuestion();
 }
 
 function showQuestion() {
-    let question = questions[currentQuestion];
-    document.getElementById('questionText').innerHTML = question['question'];
-    document.getElementById('answer_1').innerHTML = question['answer_1'];
-    document.getElementById('answer_2').innerHTML = question['answer_2'];
-    document.getElementById('answer_3').innerHTML = question['answer_3'];
-    document.getElementById('answer_4').innerHTML = question['answer_4'];
+
+    if (currentQuestion >= questions.length) {
+        //EndScreen       
+        endscreen();
+    } else {
+
+        let question = questions[currentQuestion];
+
+        document.getElementById('pageOfQuestion').innerHTML = currentQuestion + 1;
+        document.getElementById('questionText').innerHTML = question['question'];
+        document.getElementById('answer_1').innerHTML = question['answer_1'];
+        document.getElementById('answer_2').innerHTML = question['answer_2'];
+        document.getElementById('answer_3').innerHTML = question['answer_3'];
+        document.getElementById('answer_4').innerHTML = question['answer_4'];
+    }
 }
 
 function answerGiven(selection) {
@@ -60,15 +70,15 @@ function answerGiven(selection) {
     console.log('selectedQuestionNumber is ', selectedQuestionNumber);
     console.log('Current question is ', question['right_answer']);
 
-let idOfRightAnswer = `answer_${question['right_answer']}`;
+    let idOfRightAnswer = `answer_${question['right_answer']}`;
 
 
-    if(selectedQuestionNumber == question['right_answer']){
+    if (selectedQuestionNumber == question['right_answer']) {
         console.log(selection, 'ist die richtige Antwort!');
         document.getElementById(selection).parentNode.classList.add('bg-success')
     } else {
-         document.getElementById(selection).parentNode.classList.add('bg-danger')
-         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success')
+        document.getElementById(selection).parentNode.classList.add('bg-danger')
+        document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success')
     }
     document.getElementById('nextButton').disabled = false;
 
@@ -76,16 +86,18 @@ let idOfRightAnswer = `answer_${question['right_answer']}`;
 
 function nextQuestion() {
     currentQuestion++; //Array wird hier von 0 auf 1 gestellt;
-    
+
+
 
     document.getElementById('nextButton').disabled = true;
     resetQuestion();
     showQuestion();
-  
+
 
 }
 
-function resetQuestion(){
+function resetQuestion() {
+
     document.getElementById('answer_1').parentNode.classList.remove('bg-danger');
     document.getElementById('answer_2').parentNode.classList.remove('bg-danger');
     document.getElementById('answer_3').parentNode.classList.remove('bg-danger');
@@ -95,5 +107,13 @@ function resetQuestion(){
     document.getElementById('answer_2').parentNode.classList.remove('bg-success');
     document.getElementById('answer_3').parentNode.classList.remove('bg-success');
     document.getElementById('answer_4').parentNode.classList.remove('bg-success');
+}
+
+function endscreen() {
+    document.getElementById('questionBody').style = 'display: none';
+    document.getElementById('quizEnd').style = '';
+    document.getElementById('imageID').style = 'display: none';
+    document.getElementById('imageIDend').style = '';
+
 }
 

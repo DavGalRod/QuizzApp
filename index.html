@@ -20,31 +20,38 @@
 
     <div class="topLayer">
         <div class="card quizCard">
-            <img src="img/card_img.jpg" class="card-img-top; cardTopLayer">
-            <div class="card-body">
+            <img id="imageID" src="img/card_img.jpg" class="card-img-top; cardTopLayer">
+            <img id="imageIDend" src="img/pokal.jpg" class="card-img-top; cardTopLayer" style="display: none;">
+          
+          
+            <div id="quizEnd" class="card-body" style="display: none">
+                Quiz beendet!
+            </div>
+          
+            <div id="questionBody" class="card-body">
                 <h5 class="card-title" id="questionText"></h5>
-                
+
                 <div class="card quizAnswer mb-2" onclick="answerGiven('answer_1')">
                     <div class="card-body" id="answer_1">
-                       
+
                     </div>
 
                 </div>
                 <div class="card quizAnswer mb-2" onclick="answerGiven('answer_2')">
                     <div class="card-body" id="answer_2">
-                       
+
                     </div>
 
                 </div>
                 <div class="card quizAnswer mb-2" onclick="answerGiven('answer_3')">
                     <div class="card-body" id="answer_3">
-                        
+
                     </div>
 
                 </div>
                 <div class="card quizAnswer mb-2" onclick="answerGiven('answer_4')">
                     <div class="card-body" id="answer_4">
-                        
+
                     </div>
 
                 </div>
@@ -52,7 +59,8 @@
                 <div class="questionFooter">
                     <span>
                         <b id="pageOfQuestion">1</b> von <b id="allQuestions"></b> Fragen</span>
-                    <button onclick="nextQuestion()" class="btn btn-primary" id="nextButton" disabled>Nächste Frage</button>
+                    <button onclick="nextQuestion()" class="btn btn-primary" id="nextButton" disabled>Nächste
+                        Frage</button>
                 </div>
             </div>
         </div>
