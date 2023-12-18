@@ -51,11 +51,20 @@ function showQuestion() {
         //EndScreen       
         document.getElementById('questionBody').style = 'display: none';
         document.getElementById('quizEnd').style = '';
-        document.getElementById('imageID').style = 'display: none';
-        document.getElementById('imageIDend').style = '';
+        document.getElementById('restartButton').style = '';
         document.getElementById('allQuestionsTwo').innerHTML = questions.length;
         document.getElementById('rightAnswers').innerHTML = rightQuestions;
-    } else {
+        document.getElementById('imageID').src = 'img/pokal.jpg';
+        document.getAnimations('imageID').innerHTML = percent;
+
+    } else { //shows Question
+
+        //Percent-Bar:
+        let percent = Math.round(currentQuestion / questions.length * 100);
+        document.getElementById('percentBar').innerHTML = `${percent}%`;
+        document.getElementById('percentBar').style = `width: ${percent}%`;
+
+
 
         let question = questions[currentQuestion];
 
@@ -115,8 +124,13 @@ function resetQuestion() {
     document.getElementById('answer_4').parentNode.classList.remove('bg-success');
 }
 
-function endscreen() {
-
+function restartGame() {
+    document.getElementById('imageID').src = 'img/card_img.jpg';
+    rightQuestions = 0;
+    currentQuestion = 0;
+    document.getElementById('questionBody').style = '';
+    document.getElementById('quizEnd').style = 'display: none';
+    init();
 
 }
 

@@ -52,6 +52,19 @@ background-color: rgba(0, 0, 0, 0.2);
     text-align: center;
 }
 
+.restartButton1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonRow {
+    display: flex;
+    justify-content: center;   
+    margin: 24px; 
+}
+
+
 
 
 

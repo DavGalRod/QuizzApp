@@ -21,15 +21,25 @@
     <div class="topLayer">
         <div class="card quizCard">
             <img id="imageID" src="img/card_img.jpg" class="card-img-top; cardTopLayer">
-            
+
 
 
             <div id="quizEnd" class="card-body width100" style="display: none">
-                <div class="textCenter"> Quiz beendet!
+                <h1 class="textCenter"> Quiz beendet!
+                </h1>
+
+                <div class="buttonRow">
+                    <button onclick="restartGame()" class="btn btn-primary" id="restartButton">Quiz neu
+                        starten!</button>
                 </div>
-                <div> <img id="imageIDend" src="img/pokal.jpg" class="card-img-top; cardTopLayer width100"></div>
-<div class="textCenter">Du hast <b id="rightAnswers">xyz</b> Fragen von <b id="allQuestionsTwo">xyz</b> richtig beantwortet!</div>
+
+
+                <div class="textCenter">Du hast <b id="rightAnswers">xyz</b> Fragen von <b id="allQuestionsTwo">xyz</b>
+                    richtig beantwortet!</div>
             </div>
+
+
+
 
             <div id="questionBody" class="card-body">
                 <h5 class="card-title" id="questionText"></h5>
@@ -59,7 +69,12 @@
 
                 </div>
 
+                <div class="progress" role="progressbar">
+                    <div id="percentBar" class="progress-bar" style="width: 25%">0%</div>
+                </div>
+
                 <div class="questionFooter">
+
                     <span>
                         <b id="pageOfQuestion">1</b> von <b id="allQuestions"></b> Fragen</span>
                     <button onclick="nextQuestion()" class="btn btn-primary" id="nextButton" disabled>Nächste
