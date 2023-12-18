@@ -38,6 +38,8 @@ let questions = [
 
 let rightQuestions = 0;
 let currentQuestion = 0;
+let audioSuccess = new Audio('sounds/success.mp3');
+let audioFail = new Audio('sounds/fail.mp3');
 
 function init() {
     document.getElementById('allQuestions',).innerHTML = questions.length;
@@ -90,12 +92,14 @@ function answerGiven(selection) {
     if (selectedQuestionNumber == question['right_answer']) {
         console.log(selection, 'ist die richtige Antwort!');
         document.getElementById(selection).parentNode.classList.add('bg-success')
+        audioSuccess.play();
         rightQuestions++;
     } else {
         document.getElementById(selection).parentNode.classList.add('bg-danger')
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success')
     }
     document.getElementById('nextButton').disabled = false;
+    audioFail.play();
 
 }
 
