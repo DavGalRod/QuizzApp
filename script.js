@@ -38,11 +38,16 @@ let questions = [
 
 let rightQuestions = 0;
 let currentQuestion = 0;
+
+let audioStart = new Audio('sounds/gameMusic.mp3');
 let audioSuccess = new Audio('sounds/success.mp3');
 let audioFail = new Audio('sounds/fail.mp3');
 
+
+
 function init() {
     document.getElementById('allQuestions',).innerHTML = questions.length;
+    audioStart.play();
 
     showQuestion();
 }
@@ -97,9 +102,10 @@ function answerGiven(selection) {
     } else {
         document.getElementById(selection).parentNode.classList.add('bg-danger')
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success')
+        audioFail.play();
     }
     document.getElementById('nextButton').disabled = false;
-    audioFail.play();
+  
 
 }
 
