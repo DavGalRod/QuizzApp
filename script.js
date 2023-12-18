@@ -8,7 +8,7 @@ let questions = [
         "right_answer": 3
     },
     {
-        "question": "Der größte Berg der Welt?",
+        "question": "Welcher ist der größte Berg der Welt?",
         "answer_1": "Mount Rushmore",
         "answer_2": "Ever Mounterest",
         "answer_3": "Mount Everest",
@@ -16,7 +16,7 @@ let questions = [
         "right_answer": 3
     },
     {
-        "question": "Wie heißt der Protagonist von 'The Witcher 3'",
+        "question": "Wie heißt der Protagonist von 'The Witcher 3'?",
         "answer_1": "Geralt von Rivia",
         "answer_2": "Super Mario",
         "answer_3": "Link",
@@ -36,11 +36,11 @@ let questions = [
 
 ];
 
+let rightQuestions = 0;
 let currentQuestion = 0;
 
 function init() {
-    document.getElementById('allQuestions').innerHTML = questions.length;
-
+    document.getElementById('allQuestions',).innerHTML = questions.length;
 
     showQuestion();
 }
@@ -49,7 +49,12 @@ function showQuestion() {
 
     if (currentQuestion >= questions.length) {
         //EndScreen       
-        endscreen();
+        document.getElementById('questionBody').style = 'display: none';
+        document.getElementById('quizEnd').style = '';
+        document.getElementById('imageID').style = 'display: none';
+        document.getElementById('imageIDend').style = '';
+        document.getElementById('allQuestionsTwo').innerHTML = questions.length;
+        document.getElementById('rightAnswers').innerHTML = rightQuestions;
     } else {
 
         let question = questions[currentQuestion];
@@ -76,6 +81,7 @@ function answerGiven(selection) {
     if (selectedQuestionNumber == question['right_answer']) {
         console.log(selection, 'ist die richtige Antwort!');
         document.getElementById(selection).parentNode.classList.add('bg-success')
+        rightQuestions++;
     } else {
         document.getElementById(selection).parentNode.classList.add('bg-danger')
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success')
@@ -110,10 +116,7 @@ function resetQuestion() {
 }
 
 function endscreen() {
-    document.getElementById('questionBody').style = 'display: none';
-    document.getElementById('quizEnd').style = '';
-    document.getElementById('imageID').style = 'display: none';
-    document.getElementById('imageIDend').style = '';
+
 
 }
 
