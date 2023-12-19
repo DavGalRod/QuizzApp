@@ -75,5 +75,16 @@ background-color: rgba(0, 0, 0, 0.2);
     display: flex !important;
     justify-content: center !important;
 }
+.quizCard {
+    width: 100vh;
+    height: 100vh;
+}
+
+.topLayer {
+    display: flex;
+    justify-content: center;
+    margin-top: 0vh;
+    margin-bottom: 0vh;
+}
 
 }
